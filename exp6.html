@@ -98,26 +98,17 @@ Scroll down to Home directory
 
 Note the current JENKINS_HOME path.
 
-🔹 2. Create a New Folder
+ 2. Create a New Folder
 Create a directory where you want Jenkins to store data, e.g.:
 
-text
-Copy
-Edit
+
 C:\Jenkins_Home
-🔹 3. Copy Existing Jenkins Data
+ 3. Copy Existing Jenkins Data
 Copy everything from the old JENKINS_HOME to the new one:
 
-cmd
-Copy
-Edit
-xcopy "C:\Old\JenkinsHome" "C:\Jenkins_Home" /E /H /K
 Or use File Explorer with copy-paste.
 
-🔹 4. Set Environment Variable: JENKINS_HOME
-Method A: System Environment Variable
-
-Press Win + S, type: Environment Variables, and open it.
+ 4. Set Environment Variable: JENKINS_HOME
 
 Under System Variables ➝ Click New
 
@@ -128,41 +119,29 @@ Value: C:\Jenkins_Home
 Click OK, Apply, and exit.
 
 Method B: Set It in jenkins.xml (if installed via .msi)
+ notepad jenkins.xml
 
 Navigate to:
 
-text
-Copy
-Edit
 C:\Program Files\Jenkins
 Open jenkins.xml in a text editor (like Notepad++ or VS Code as Administrator).
 
 Find the <env> section:
 
 xml
-Copy
-Edit
+
 <env name="JENKINS_HOME" value="C:\Jenkins_Home" />
-If it doesn't exist, add it just above </service>.
-
 Save and close the file.
-
-🔹 5. Restart Jenkins
+cmd admininstartor
+ net start jenkins
+ net stop jenkins
+ 
+ 5. Restart Jenkins
 You can restart Jenkins in one of these ways:
 
 Windows Services: services.msc ➝ Restart Jenkins
 
-Or reboot your PC.
 
-✅ Verifying
-Go to http://localhost:8080
 
-Go to:
-Manage Jenkins ➝ Configure System
 
-Check that Home directory now shows:
 
-makefile
-Copy
-Edit
-C:\Jenkins_Home
