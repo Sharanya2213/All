@@ -1,0 +1,90 @@
+Experiment 6
+Jenkins Installation Guide
+System Requirements
+Memory: 256 MB of RAM
+Disk Space: Depends on your projects
+Operating System: Windows, Mac, Ubuntu, Linux
+Java Version: Java 8 or 11 (JDK or JRE)
+Installation on Windows - Step-by-Step Instructions
+Check if Java is installed
+Download the jenkins.war file from the official site
+Open Command Prompt and run the following command:
+
+ java -jar jenkins.war --httpPort=8080
+Open your browser and go to: http://localhost:8080
+Provide the admin password and complete the setup wizard
+Jenkins Configuration - How to Change Jenkins Home Directory
+Navigate to: Manage Jenkins ➝ Configure System to view your current JENKINS_HOME
+Create a new folder where you want Jenkins to store its data
+Copy the contents of the old JENKINS_HOME to the new folder
+Set or update the environment variable JENKINS_HOME to the new path
+Restart Jenkins
+Configuration File Reference:
+
+jenkins.xml
+Environment Variable: JENKINS_HOME
+Setting Up Git on Jenkins
+Step-by-Step Git Plugin Setup
+Go to Manage Jenkins ➝ Manage Plugins
+Check the Installed tab to see if Git is already installed
+If not, go to the Available tab and search for Git
+Click Install to install the Git plugin
+After installation, verify that the Git option appears in the Job Configuration section
+Creating Your First Job in Jenkins
+Connecting Jenkins to a Git Remote Repository (e.g., GitHub)
+Get the URL of the remote Git repository (HTTPS or SSH)
+Add Git credentials to Jenkins:
+Go to Manage Jenkins ➝ Credentials
+Add the username/password or SSH key under the appropriate scope
+In your job's configuration:
+Go to the Source Code Management (SCM) section
+Select Git
+Enter the Git repository URL
+Add the credentials you created earlier
+Run the job and verify if the repository is successfully cloned
+Jenkins Command Line Interface (CLI)
+Why Use CLI?
+Faster, easier, seamless integration with Jenkins.
+
+How to Use Jenkins CLI
+Start Jenkins
+Go to: Manage Jenkins ➝ Configure Global Security ➝ Enable Security
+Open your browser and visit:
+http://localhost:8080/cli/
+Download the jenkins-cli.jar and place it anywhere on your system
+Test Jenkins CLI with the following command:
+
+java -jar jenkins-cli.jar -s http://localhost:8080/ help --username <userName> --password <password>
+User and Role Management in Jenkins - Creating Users and Assigning Roles
+Create new users from Manage Jenkins ➝ Manage Users
+Configure users as needed
+Install the Role-Based Authorization Strategy Plugin
+Go to Manage Jenkins ➝ Manage Plugins ➝ Available ➝ Search & Install
+Restart Jenkins after installation
+Go to: Manage Jenkins ➝ Configure Global Security ➝ Authorization ➝ Select Role-Based Strategy
+Go to: Manage Jenkins ➝ Manage and Assign Roles
+Create Roles
+Assign Roles to Users
+Validate that authentication and authorization work as expected
+Jenkinsfile – Pipeline as Code
+Build ➝ Deploy ➝ Test ➝ Release
+How to Create a Jenkinsfile
+Start Jenkins
+Install the Pipeline Plugin from Manage Plugins
+Create a new job
+In the job configuration, go to the Pipeline section:
+Select Pipeline Script
+Write or paste your Jenkinsfile here
+Run the job and verify the output
+Jenkins Pipeline from Git SCM
+Use Jenkinsfile from a Git Repository
+Create a new job or use an existing job (Job Type: Pipeline)
+Create a Git repository (e.g., on GitHub)
+Add a Jenkinsfile to the repository
+In the job configuration:
+Go to Pipeline ➝ Definition: Pipeline script from SCM
+SCM: Git
+Provide the repository URL
+Specify the Jenkinsfile location in the repo
+Save the job
+Run the job and validate the pipeline execution

@@ -1,0 +1,23 @@
+plugins {
+    id 'application'
+}
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter:5.8.1'
+}
+
+application {
+    mainClass = 'com.example.Main'
+}
+gradle run
+task copyWebsite(type: Copy) {
+    from 'src/main/resources/website'
+    into 'docs'
+}
+git add .
+git commit -m "Deploy website using Gradle"
+git push origin main
