@@ -21,6 +21,13 @@ task copyWebsite(type: Copy) {
 git add .
 git commit -m "Deploy website using Gradle"
 git push origin main
+**
+git init
+git add .
+git commit -m "Initial commit with GitHub Pages files in /docs"
+git branch -M main
+git remote add origin https://github.com/your-username/your-repo-name.git
+git push -u origin main
 
 Go to GitHub Repo -> Settings -> Pages.
 Select the /docs folder as the source.
